@@ -30,8 +30,11 @@ class RepositoryScoreExceptionHandlerTest {
 
     @Test
     void testHandleRuntimeException() {
+        //GIVEN
         RuntimeException ex = new RuntimeException("Test runtime exception");
+        //WHEN
         ResponseEntity<ProblemDetail> response = exceptionHandler.handleRuntimeException(ex, request);
+        //THEN
         assertNotNull(response, "Response should not be null");
         ProblemDetail detail = response.getBody();
         assertNotNull(detail, "ProblemDetail should not be null");
@@ -42,8 +45,11 @@ class RepositoryScoreExceptionHandlerTest {
 
     @Test
     void testHandleUnknownHostException() {
+        //GIVEN
         UnknownHostException ex = new UnknownHostException("Unknown host error");
+        //WHEN
         ResponseEntity<ProblemDetail> response = exceptionHandler.handleUnknownHostException(ex, request);
+        //THEN
         assertNotNull(response);
         ProblemDetail detail = response.getBody();
         assertNotNull(detail);
@@ -54,8 +60,11 @@ class RepositoryScoreExceptionHandlerTest {
 
     @Test
     void testHandleIllegalArgumentException() {
+        //GIVEN
         IllegalArgumentException ex = new IllegalArgumentException("Foo");
+        //WHEN
         ResponseEntity<ProblemDetail> response = exceptionHandler.handleIllegalArgumentException(ex, request);
+        //THEN
         assertNotNull(response);
         ProblemDetail detail = response.getBody();
         assertNotNull(detail);
@@ -66,8 +75,11 @@ class RepositoryScoreExceptionHandlerTest {
 
     @Test
     void testHandleJsonParseException() {
+        //GIVEN
         JsonParseException ex = new JsonParseException(null, "Some Parse error");
+        //WHEN
         ResponseEntity<ProblemDetail> response = exceptionHandler.handleJsonException(ex, request);
+        //THEN
         assertNotNull(response);
         ProblemDetail detail = response.getBody();
         assertNotNull(detail);
@@ -79,8 +91,11 @@ class RepositoryScoreExceptionHandlerTest {
 
     @Test
     void testHandleJsonMappingException() {
+        //GIVEN
         JsonMappingException ex = new JsonMappingException(null, "Mapping issue");
+        //WHEN
         ResponseEntity<ProblemDetail> response = exceptionHandler.handleJsonException(ex, request);
+        //THEN
         assertNotNull(response);
         ProblemDetail detail = response.getBody();
         assertNotNull(detail);
@@ -92,7 +107,9 @@ class RepositoryScoreExceptionHandlerTest {
 
     @Test
     void testHandleResourceAccessException() {
+        //GIVEN//WHEN
         ResponseEntity<String> response = exceptionHandler.handleResourceAccessException(request);
+        //THEN
         assertNotNull(response);
         assertEquals(HttpStatus.GATEWAY_TIMEOUT, response.getStatusCode());
     }
