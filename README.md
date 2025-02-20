@@ -6,12 +6,9 @@ The **Repository Score Application** is a Java-based service that fetches reposi
 
 - [Features](#features)
 - [Prerequisites](#prerequisites)
-- [Project Structure](#project-structure)
 - [Docker Setup](#docker-setup)
-- [Helm Deployment](#helm-deployment)
 - [Monitoring Setup](#monitoring-setup)
 - [Start Script Usage](#start-script-usage)
-- [License](#license)
 
 ## Features
 - **Caching:**  
