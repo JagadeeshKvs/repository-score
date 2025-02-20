@@ -1,0 +1,10 @@
+replicaCount: 2
+
+image:
+  repository: repo-score-image
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 8080
