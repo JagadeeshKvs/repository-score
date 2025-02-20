@@ -66,7 +66,10 @@ public class RepositoryScoreControllerIntegrationTest {
                 .getForEntity(url, ProblemDetail.class);
         //THEN
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        assertThat(Objects.requireNonNull(response.getBody()).getDetail()).contains("Error: createdAfter is required");
+        assertThat(Objects.requireNonNull(response.getBody()).getDetail())
+                .contains("createdAfter must be in format YYYY-MM-DD");
+        assertThat(Objects.requireNonNull(response.getBody()).getDetail())
+                .contains("createdAfter is required");
     }
 
     @Test

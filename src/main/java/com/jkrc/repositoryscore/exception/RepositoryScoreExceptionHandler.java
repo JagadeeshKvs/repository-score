@@ -68,7 +68,7 @@ public class RepositoryScoreExceptionHandler {
         logError(ex);
         String name = ex.getAllErrors().stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                .collect(Collectors.joining());
+                .collect(Collectors.joining(", "));
         ProblemDetail errorDetails = ProblemDetail.forStatusAndDetail(
                 HttpStatus.BAD_REQUEST, String.format("Error: %s", name)
         );
