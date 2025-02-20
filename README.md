@@ -10,6 +10,7 @@ The **Repository Score Application** is a Java-based service that fetches reposi
 - [Docker Setup](#docker-setup)
 - [Helm Deployment](#helm-deployment)
 - [API Documentation](#api-documentation)
+- [Sample Request](#sample-request)
 - [Monitoring Setup](#monitoring-setup)
 - [Start Script Usage](#start-script-usage)
 
@@ -55,6 +56,10 @@ The API documentation is automatically generated with [springdoc-openapi](https:
 - **OpenAPI JSON:** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
 
 If you need to customize the documentation, you can modify via the `application.properties` file.
+
+
+## Sample Request
+`localhost:8080/api/v1/scoredRepositories?createdAfter=2018-01-01&language=java`
 
 ## Monitoring Setup
 ### Prometheus:

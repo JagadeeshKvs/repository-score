@@ -15,7 +15,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 @Component
-public class RepositoryScoreCalculator{
+public class RepositoryScoreCalculator {
 
     private static final Logger logger = LoggerFactory.getLogger(GithubRepositoryService.class);
     private static final int DAYS_IN_YEAR = 365;
@@ -44,10 +44,10 @@ public class RepositoryScoreCalculator{
         double lastUpdatedWeight = getLastUpdatedWeight(repository.getUpdatedAt());
         double normalizedStar = (double) repository.getStargazersCount() / starGazerSum;
         double normalizedForksCount = (double) repository.getForksCount() / forksSum;
-        double score = (normalizedStar * 0.5) +
+        double score = ((normalizedStar * 0.5) +
                 (normalizedForksCount * 0.3) +
-                (lastUpdatedWeight * 0.2);
-        return new BigDecimal(score).setScale(2, RoundingMode.HALF_UP).doubleValue();
+                (lastUpdatedWeight * 0.2)) * 100;
+        return new BigDecimal(score).setScale(3, RoundingMode.HALF_UP).doubleValue();
     }
 
     private double getLastUpdatedWeight(Date updatedAt) {
